@@ -1,0 +1,85 @@
+{% load static %}
+    <div class="main_header">
+
+        <a href="{% url 'accounts:main' %}">
+            <h1 class="header_title_logo">Train To Travel</h1>
+        </a>
+
+
+        <div class="main_header_navbar">
+            {% if not user.is_authenticated %}
+            <a href="{% url 'accounts:login' %}?next={{ request.path }}" class="header_nav_space">
+                <input type="button" class="btn btn-primary rounded-pill col-12" value="로그인/회원가입">
+            </a>
+            {% else %}
+                {% if user.profile %}
+                <details>
+                    <summary>
+                        <img src="{{ user.profile.image.url }}" alt=""
+                        style="height: 3rem; width: 3rem; border-radius: 10rem; margin-bottom: 1rem;">
+                    </summary>
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <a href="{% url 'accounts:detail' pk=user.pk %}">
+                                    정보 수정
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                즐겨찾기
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                후기 업로드
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="{% url 'accounts:logout' %}">
+                                    로그아웃
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </details>
+
+                {% else %}
+                <details>
+                    <summary>
+                        <img src="{% static '/annonymous.png' %}" alt=""
+                        style="height: 3rem; width: 3rem; border-radius: 10rem; margin-bottom: 1rem;">
+                    </summary>
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <a href="{% url 'profileapp:create' %}">
+                                    정보 수정
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                즐겨찾기
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                후기 업로드
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="{% url 'accounts:logout' %}">
+                                    로그아웃
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </details>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>

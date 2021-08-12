@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div style="border-radius: 1rem; margin: 2rem; text-align: center;">
+    <h1 class="main_header">
+        Main Page
+    </h1>
+
+
+
+    {% if main_list %}
+      {% for list in main_list %}
+        <h1>
+          {{ list.text }}
+        </h1>
+      {% endfor %}
+    {% endif %}
+
+  </div>
+{% endblock %}
