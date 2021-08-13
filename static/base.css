@@ -1,36 +1,29 @@
 .header_title_logo {
-    display: inline;
     font-family: 'Amatic SC', cursive;
-    float: left;
-    margin: 1rem 2rem;
+    position: absolute;
+    top: 40%;
+    left: 15%;
+}
+
+.account_navbar{
+    font-family: 'Hi Melody', cursive;
+    position: absolute;
+    top: 40%;
+    left: 80%;
 }
 
 .footer_title_logo {
     font-family: 'Amatic SC', cursive;
     text-align: center;
     margin-top: 2rem;
-}
-
-.main_header{
-    height: 6rem;
-}
-
-.main_footer{
     text-align:center;
-    margin-top: 2rem;
-}
-
-.main_header_navbar{
-    font-family: 'Hi Melody', cursive;
-    display: inline-block;
-    margin: 1rem 3rem;
-    font-size: 1rem;
-    float: right;
 }
 
 .main_footer_navbar{
-    font-size: .9rem;
     font-family: 'Hi Melody', cursive;
+    font-size: .9rem;
+    text-align:center;
+    margin-top: 2rem;
 }
 
 a {
@@ -43,10 +36,60 @@ a:hover {
 }
 
 
-.right_button{
-    display: inline-block;
-    margin: 0 3rem;
-    font-size: .9rem;
-    float: right;
+.search-box{
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%,-50%);
+    height: 32px;
+    width:32px;
+    background-color: #fff;
+    border: 1px solid #51e3d4;
+    border-radius: 30px;
+    transition: 0.5s;
 }
 
+
+.search-box:hover{
+    box-shadow: 0px 0px .5px 1px #51e3d4;
+    width: 200px;
+}
+
+
+.search-btn{
+    text-decoration: none;
+    float: right;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #51e3d4;
+}
+
+
+.search-box:hover > .search-btn{
+    background-color: #fff;
+}
+
+
+.search-txt{
+    display: flex;
+    padding: 0;
+    width: 0px;
+    border:none;
+    background: none;
+    outline: none;
+    float: left;
+    font-size: 1rem;
+    line-height: 30px;
+    transition: .4s;
+}
+
+
+.search-box:hover > .search-txt{
+    width: 140px;
+    padding: 0 6px;
+}

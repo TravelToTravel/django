@@ -17,7 +17,6 @@ from account.models import MainPage
 has_ownership = [account_ownership_required, login_required]
 
 
-@login_required
 def main(request):
     if request.method == 'POST':
         temp = request.POST.get('test_input')
