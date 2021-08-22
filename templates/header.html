@@ -3,18 +3,18 @@
     <div style="height: 6rem; width: 100%; position: relative;">
 
         <!--  헤더 로고  -->
-        <a href="{% url 'accounts:main' %}">
+        <a href="{% url 'festivals:main' %}">
             <h1 class="header_title_logo">Train To Travel</h1>
         </a>
 
 
         <!--  검색 버튼  -->
-        <form action="{% url 'accounts:main' %}" method="post" name="search">
+        <form action="{% url 'festivals:main' %}" method="post" name="search">
             {% csrf_token %}
             <div class="search-box">
                 <input type="text" class="search-txt" name="test_input" placeholder="Search" onkeypress="JavaScript:press(this.form)">
 
-                <a class="search-btn" href="{% url 'accounts:main' %}">
+                <a class="search-btn" href="{% url 'festivals:main' %}">
                     <i class="fas fa-search"></i>
                 </a>
             </div>
@@ -35,27 +35,28 @@
                         <img src="{{ user.profile.image.url }}" alt=""
                         style="height: 3rem; width: 3rem; border-radius: 10rem; margin-bottom: 1rem;">
                     </summary>
-                    <table class="table" style="color: white;">
+                <!--  a태그 글자 색 변경해야함  -->
+                    <table class="table">
                         <tr>
                             <td>
-                                <a href="{% url 'accounts:detail' pk=user.pk %}">
+                                <a href="{% url 'accounts:detail' pk=user.pk %}"  style="color: red;">
                                     정보 수정
                                 </a>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td style="color: red;">
                                 즐겨찾기
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td style="color: red;">
                                 후기 업로드
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="{% url 'accounts:logout' %}">
+                                <a href="{% url 'accounts:logout' %}" style="color: red;">
                                     로그아웃
                                 </a>
                             </td>
@@ -72,24 +73,24 @@
                     <table class="table">
                         <tr>
                             <td>
-                                <a href="{% url 'profileapp:create' %}">
+                                <a href="{% url 'profileapp:create' %}" style="color: red;">
                                     정보 수정
                                 </a>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td style="color: red;">
                                 즐겨찾기
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td style="color: red;">
                                 후기 업로드
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="{% url 'accounts:logout' %}">
+                                <a href="{% url 'accounts:logout' %}" style="color: red;">
                                     로그아웃
                                 </a>
                             </td>

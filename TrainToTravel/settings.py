@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'account',
     'profileapp',
-
+    'festival',
 ]
 
 MIDDLEWARE = [
@@ -117,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko'
 
 TIME_ZONE = 'Asia/Seoul'
 
@@ -139,8 +139,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
-LOGIN_REDIRECT_URL = reverse_lazy('accounts:main')
-LOGOUT_REDIRECT_URL = reverse_lazy('accounts:main')
+LOGIN_REDIRECT_URL = reverse_lazy('festivals:main')
+LOGOUT_REDIRECT_URL = reverse_lazy('festivals:main')
 
 MEDIA_URL = '/media/'
 

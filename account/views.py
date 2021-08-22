@@ -1,33 +1,16 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
-
 
 # Create your views here.
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from account.decorators import account_ownership_required
 from account.forms import AccountUpdateForm
-from account.models import MainPage
 
 has_ownership = [account_ownership_required, login_required]
-
-
-def main(request):
-    if request.method == 'POST':
-        temp = request.POST.get('test_input')
-        new_main = MainPage()
-        new_main.text = temp
-        new_main.save()
-
-        return HttpResponseRedirect(reverse('accounts:main'))
-    else:
-        main_list = MainPage.objects.all()
-        return render(request, 'account/main.html', context={'main_list': main_list})
 
 
 class AccountCreateView(CreateView):
@@ -40,7 +23,7 @@ class AccountCreateView(CreateView):
 class AccountDetailView(DetailView):
     model = User
     context_object_name = 'target_user'
-    template_name = 'account/detail.html'
+    template_name = 'account/list.html'
 
 
 @method_decorator(has_ownership, 'post')
@@ -50,7 +33,7 @@ class AccountUpdateView(UpdateView):
     model = User
     form_class = AccountUpdateForm
     context_object_name = 'target_user'
-    success_url = reverse_lazy('accounts:main')
+    success_url = reverse_lazy('festivals:main')
     template_name = 'account/update.html'
 
 
