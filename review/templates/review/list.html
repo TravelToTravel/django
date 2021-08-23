@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+
+{% block content %}
+
+    <div class="container my-3">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if review_list %}
+            {% for review in review_list %}
+                <tr>
+                    <td>
+                        {{ forloop.counter }}
+                    </td>
+                    <td>
+                        <a href="{% url 'reviews:detail' pk=review.pk %}">{{ review.subject }}</a>
+                    </td>
+                    <td>
+                        {{ review.writer }}
+                    </td>
+                    <td>
+                        {{ review.created_date }}
+                    </td>
+                </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="3">후기가 없습니다.</td>
+            </tr>
+            {% endif %}
+            </tbody>
+        </table>
+
+        {% include 'paging/pagination.html' with page_obj=page_obj %}
+
+        <a class="material-icons"
+           style="box-shadow: 0 0 4px #ccc; border-radius: 10rem; padding: .4rem;"
+           href="{% url 'reviews:create' %}" class="btn btn-dark rounded-pill col-1 mt-3">
+            create
+        </a>
+
+    </div>
+{% endblock %}
