@@ -23,7 +23,7 @@ class AccountCreateView(CreateView):
 class AccountDetailView(DetailView):
     model = User
     context_object_name = 'target_user'
-    template_name = 'account/list.html'
+    template_name = 'account/detail.html'
 
 
 @method_decorator(has_ownership, 'post')

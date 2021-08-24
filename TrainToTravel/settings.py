@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'profileapp',
     'festival',
     'review',
+    'category',
 ]
 
 MIDDLEWARE = [

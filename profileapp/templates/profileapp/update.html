@@ -9,7 +9,10 @@
         <form action="{% url 'profileapp:update' pk=target_profile.pk %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% bootstrap_form form %}
-            <input type="submit" class="btn btn-dark rounded-pill col-3 mt-3" value="수정">
+            <input type="submit" class="btn btn-primary rounded-pill col-3 mt-3" value="수정">
+            <a href="{% url 'accounts:detail' pk=target_profile.pk %}">
+                <input type="button" class="btn btn-dark rounded-pill col-3 mt-3" value="취소">
+            </a>
         </form>
     </div>
 

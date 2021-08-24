@@ -9,6 +9,7 @@
             <thead>
             <tr>
                 <th>번호</th>
+                <th>이미지</th>
                 <th>제목</th>
                 <th>작성자</th>
                 <th>작성일</th>
@@ -20,6 +21,12 @@
                 <tr>
                     <td>
                         {{ forloop.counter }}
+                    </td>
+                    <td>
+                        {% if review.image %}
+                            <img style="width: 70px; height: 30px;"
+                                src="{{ review.image.url }}" alt="">
+                        {% endif %}
                     </td>
                     <td>
                         <a href="{% url 'reviews:detail' pk=review.pk %}">{{ review.subject }}</a>
