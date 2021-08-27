@@ -15,100 +15,57 @@
                         </div>
                         <div class="timeline-panel">
                             <br><br>
-
-                            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                <input type="radio" class="btn-check" name="num" id="btnradio1" value="solo" autocomplete="off" checked>
-                                <label class="btn btn-outline-primary" for="btnradio1">#혼자</label>
-
-                                <input type="radio" class="btn-check" name="num" id="btnradio2" value="together" autocomplete="off">
-                                <label class="btn btn-outline-primary" for="btnradio2">#2명이상</label>
-
-                            </div>
+                            {% for party in party_list %}
+                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                                    <input type="radio" class="btn-check" name="num" id="btnradio{{ forloop.counter }}" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btnradio{{ forloop.counter }}">{{ party.headcount }}</label>
+                                </div>
+                            {% endfor %}
                         </div>
                     </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static '/assets/about/2.png' %}" alt="2이미지" /></div>
+                    <li class="timeline-inverted">  <!-- 이미지 기준 오른쪽으로 반전 -->
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static '/assets/about/2.png' %}" alt="2이미지" />
+                        </div>
                         <div class="timeline-panel">
                             <br><br>
-                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-
-                                <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" name="age" value="10" checked>
-                                <label class="btn btn-outline-primary" for="btncheck1">#10대</label>
-
-                                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" name="age" value="20">
-                                <label class="btn btn-outline-primary" for="btncheck2">#20대-30대</label>
-
-                                <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off" name="age" value="30">
-                                <label class="btn btn-outline-primary" for="btncheck3">#40대-60대</label>
-
-                                <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off" name="age" value="40">
-                                <label class="btn btn-outline-primary" for="btncheck4">#70대 이상</label>
-
-
-                            </div>
+                            {% for age in age_list %}
+                                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                    <input type="checkbox" class="btn-check" name="age" id="btncheck{{ forloop.counter }}" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="btncheck{{ forloop.counter }}">{{ age.age }}</label>
+                                </div>
+                            {% endfor %}
                         </div>
                     </li>
                     <li>
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static '/assets/about/3.png' %}" alt="3이미지" /></div>
                         <div class="timeline-panel">
-                            <Br><Br>
-                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-
-                                <input type="checkbox" class="btn-check" id="seoul" autocomplete="off" name="location" value="seoul">
-                                <label class="btn btn-outline-primary" for="seoul">#<br>서<Br>울</label>
-
-                                <input type="checkbox" class="btn-check" id="ggd" autocomplete="off" name="loaction" value="ggd">
-                                <label class="btn btn-outline-primary" for="ggd">#<br>경기<br>인천</label>
-
-                                <input type="checkbox" class="btn-check" id="ccd" autocomplete="off" name="loaction" value="ccd">
-                                <label class="btn btn-outline-primary" for="ccd">#<br>충<br>청<br>도</label>
-
-                                <input type="checkbox" class="btn-check" id="kwd" autocomplete="off" name="loaction" value="kwd">
-                                <label class="btn btn-outline-primary" for="kwd">#<Br>강<br>원<Br>도</label>
-
-                                <input type="checkbox" class="btn-check" id="gld" autocomplete="off" name="loaction" value="jld">
-                                <label class="btn btn-outline-primary" for="gld">#<Br>전<br>라<Br>도</label>
-
-                                <input type="checkbox" class="btn-check" id="gsd" autocomplete="off" name="loaction" value="gsd">
-                                <label class="btn btn-outline-primary" for="gsd">#<br>경<br>상<Br>도</label>
-
-                                <input type="checkbox" class="btn-check" id="jjd" autocomplete="off" name="location" value="jjd">
-                                <label class="btn btn-outline-primary" for="jjd">#<br>제<br>주<br>도</label>
-
-
-                            </div>
+                            <br><br>
+                            {% for location in location_list %}
+                                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                    <input type="checkbox" class="btn-check" id="location{{ forloop.counter }}" autocomplete="off" name="location">
+                                    <label class="btn btn-outline-primary" for="location{{ forloop.counter }}">{{ location.area }}</label>
+                                </div>
+                            {% endfor %}
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static '/assets/about/4.png' %}" alt="4이미지" /></div>
                         <div class="timeline-panel">
-                            <Br>
+                            <br><br>
+                            {% for purpose in purpose_list %}
                                 <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                    <input type="checkbox" class="btn-check" id="purpose{{ forloop.counter }}" autocomplete="off" name="purpose">
+                                    <label class="btn btn-outline-primary" for="purpose{{ forloop.counter }}">{{ purpose.purpose }}</label>
 
-                                    <input type="checkbox" class="btn-check" id="sports" autocomplete="off" name="purpose" value="sports">
-                                    <label class="btn btn-outline-primary" for="sports">#<br>스<br>포<br>츠</label>
-
-                                    <input type="checkbox" class="btn-check" id="amusement" autocomplete="off" name="purpose" value="amusement">
-                                    <label class="btn btn-outline-primary" for="amusement">#<br>놀<Br>이<br>동<br>산</label>
-
-                                    <input type="checkbox" class="btn-check" id="pet" autocomplete="off" name="purpose" value="pet">
-                                    <label class="btn btn-outline-primary" for="pet">#<br>펫<br>여<br>행</label>
-
-                                    <input type="checkbox" class="btn-check" id="food" autocomplete="off" name="purpose" value="food">
-                                    <label class="btn btn-outline-primary" for="food">#<br>식<br>도<br>락</label>
-
-                                    <input type="checkbox" class="btn-check" id="all" autocomplete="off" name="purpose" value="all">
-                                    <label class="btn btn-outline-primary" for="all">#<Br>싹다!!</label>
-
-                                   <!--변경예정-->
-                                  </div>
+                                </div>
+                            {% endfor %}
                         </div>
                     </li>
                     <li class="timeline-inverted">
 
                         <div class="timeline-image" ><a href="list.html"><img class="rounded-circle img-fluid" src="{% static '/assets/about/reach.png' %}" alt="5이미지" /></a></div>
                         <div class="timeline-panel">
-                                <br><br><Br>
+                                <br><br><br>
                                 <div class="timeline-heading">
                                     <h4 style="font-family: 'Gamja Flower', cursive;">&larr;클릭해서 확인하세요!</h4>
                                 </div>
@@ -144,8 +101,6 @@
 
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
 
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
@@ -153,7 +108,7 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="js/jquery-sakura.js"></script>
+        <script src="{% static 'js/jquery_sakura.js' %}"></script>
 <script>
 $(window).load(function () {
     $('body').sakura();
