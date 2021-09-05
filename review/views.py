@@ -57,6 +57,6 @@ class ReviewDeleteView(DeleteView):
 class ReviewListView(ListView):
     model = Review
     context_object_name = 'review_list'
-    template_name = 'review/list.html'
+    template_name = 'review/list1.html'
     paginate_by = 10
 

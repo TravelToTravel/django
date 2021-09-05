@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if party_list %}
+      {% for party in party_list %}
+        <h1>
+          {{ party.headcount }}
+        </h1>
+      {% endfor %}
+    {% endif %}
+
+{% endblock %}
